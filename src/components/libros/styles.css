@@ -1,0 +1,70 @@
+
+/* Estilos generales para la lista de libros */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Estilos para cada libro */
+li {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el contenedor del libro */
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos para el recuadro de título, autor y estado */
+div > div {
+  background-color: #f0f0f0; /* Fondo gris */
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px; /* Espaciado superior */
+}
+
+body {
+  margin: 0; /* Elimina el margen predeterminado del body */
+  padding: 0;
+  font-family: 'Arial', sans-serif; /* Ajusta la fuente según tus preferencias */
+  background-image: url('./fondo_libros.jpeg'); /* Ruta de la imagen de fondo */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el fondo */
+  background-position: center center; /* Centra la imagen en el fondo */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+}
+
+/* Estilos para la imagen del libro */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para los enlaces */
+Link {
+  text-decoration: none;
+  color: #333;
+}
+
+Link:hover {
+  color: #007bff;
+}
+
+/* Estilos para los títulos y subtítulos */
+h1,
+h3 {
+  margin: 0;
+  text-align: center; /* Agrega esta línea para centrar el título */
+}
+
+h1 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}

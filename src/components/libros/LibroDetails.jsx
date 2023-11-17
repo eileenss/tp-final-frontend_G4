@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import './styles.css';
 
 const LibroDetails = (props) => {
   const { id } = useParams();
