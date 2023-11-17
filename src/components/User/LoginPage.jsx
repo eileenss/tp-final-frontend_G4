@@ -6,12 +6,13 @@ import { useNavigate } from 'react-router-dom';
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      // Si hay un token almacenado, redirige al usuario a la página de desconectar
+      // Si hay un token almacenado, la proxima vez que el usuario entre a la pagina lo redirige a desconectar
       navigate('/disconnect');
     }
   }, [navigate]);
@@ -28,22 +29,17 @@ const LoginForm = () => {
 
       if (response.ok) {
         const data = await response.json();
-        // Si la respuesta es exitosa, data debería contener un token
-        // Puedes almacenar el token en localStorage o sessionStorage para su uso posterior
-        // Por ejemplo, almacenarlo en localStorage:
+        // Si la respuesta es exitosa, data debería contiene un token
         localStorage.setItem('token', data.token);
-        // Redirige a la página '/home' después de un inicio de sesión exitoso
+        // Redirige a la página '/' después de un inicio de sesión exitoso
         navigate('/');
       } else {
-        // Si la respuesta no es exitosa, puede ser un error de autenticación
-        console.error('Error al iniciar sesión');
-        // Aquí puedes mostrar un mensaje de error al usuario, por ejemplo:
-        // setError('Error al iniciar sesión. Por favor, verifica tus credenciales.');
+        setError('Error al iniciar sesión')
+        // Seteamos el error a enviar
       }
     } catch (error) {
-      console.error('Error en la solicitud:', error);
-      // Manejo de errores de red u otros errores de la solicitud
-      // Puedes mostrar un mensaje de error genérico o realizar alguna otra acción
+      setError('Error en la solicitud:', error)
+      // Seteamos el error a enviar
     }
   };
 
@@ -54,6 +50,7 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <div>
         <label htmlFor="email">Email:</label>
         <input
