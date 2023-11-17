@@ -1,10 +1,12 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './styles.css';
 
-import { Link } from 'react-router-dom';
-
 const Libro = (props) => {
+  const estadoClass = props.Estado === 'Disponible' ? 'estado-disponible' : 'estado-alquilado';
+
   return (
-    <li>
+    <li className={`Libro ${estadoClass}`}>
       <div>
         <Link to={`/libros/${props.Id}`}>
           <div>

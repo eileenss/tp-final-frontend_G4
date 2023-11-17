@@ -23,20 +23,28 @@ div {
 
 /* Estilos para el recuadro de título, autor y estado */
 div > div {
-  background-color: #f0f0f0; /* Fondo gris */
+  background-color: #f0f0f0;
   padding: 10px;
   border-radius: 8px;
-  margin-top: 10px; /* Espaciado superior */
+  margin-top: 10px;
 }
 
 body {
-  margin: 0; /* Elimina el margen predeterminado del body */
+  margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif; /* Ajusta la fuente según tus preferencias */
-  background-image: url('./fondo_libros.jpeg'); /* Ruta de la imagen de fondo */
-  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir completamente el fondo */
-  background-position: center center; /* Centra la imagen en el fondo */
-  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+  font-family: 'Arial', sans-serif;
+  background-image: url('./fondo_libros.jpeg');
+  background-size:cover;
+  background-position: center center;
+  background-repeat:repeat;
+  height: 100%;
+  background-attachment: fixed;
+}
+
+.LibroContainer {
+  padding: 20px;
+  position: relative;
+  top: 100px;
 }
 
 /* Estilos para la imagen del libro */
@@ -61,10 +69,33 @@ Link:hover {
 h1,
 h3 {
   margin: 0;
-  text-align: center; /* Agrega esta línea para centrar el título */
+  text-align: center;
 }
 
 h1 {
   font-size: 1.2em;
   margin-bottom: 5px;
+}
+
+/* Estilos específicos para LibroDetails */
+.LibroDetails-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.Sinopsis {
+  white-space: pre-wrap;
+}
+
+/* Estilos específicos para Libro */
+.Libro {
+  color: #333; 
+}
+
+.estado-disponible {
+  color: green; 
+}
+
+.estado-alquilado {
+  color: red; 
 }

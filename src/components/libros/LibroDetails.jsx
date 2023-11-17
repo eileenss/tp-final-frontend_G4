@@ -13,22 +13,23 @@ const LibroDetails = (props) => {
         setLibro(data.find((libro) => libro['_id'] === id));
       })
       .catch((error) => console.log('Error en la carga', error));
-  }, []);
+  }, [id]);
 
   return (
-    <div>
+    <div className="LibroDetails-container">
       <div>
         <img src={libro.Imagen} alt="Tapa de libro"></img>
       </div>
       <h1>Título: {libro.Titulo}</h1>
       <h3>Autor: {libro.Autor}</h3>
       <h3>Género: {libro.Genero}</h3>
-      <h3>Sinopsis: {libro.Sinopsis}</h3>
+      <h3 className="Sinopsis">Sinopsis: {libro.Sinopsis}</h3>
       <h3>Fecha de publicación: {libro.FechaPublicacion}</h3>
       <h3>Editorial: {libro.Editorial}</h3>
       <h3>Idioma: {libro.Idioma}</h3>
       <h3>Estado: {libro.Estado}</h3>
-      <button>Alquilar</button>
+      {libro.Estado === 'Disponible' && <button>Alquilar</button>}
+      {libro.Estado === 'Alquilado' && <button>Devolver</button>}
     </div>
   );
 };

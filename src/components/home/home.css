@@ -1,0 +1,38 @@
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.center-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.home-container {
+  text-align: center;
+  padding: 20px;
+  width: 300px;
+}
+
+.welcome-message {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.nav-link:hover {
+  color: #0056b3;
+}
