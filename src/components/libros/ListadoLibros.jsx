@@ -11,7 +11,7 @@ const ListadoLibros = (props) => {
             Autor={libro.Autor}
             Genero={libro.Genero}
             Sinopsis={libro.Sinopsis}
-            // FechaPublicacion={libro.Fecha - publicacion}
+            FechaPublicacion={libro["Fecha-publicacion"]}
             Editorial={libro.Editorial}
             Idioma={libro.Idioma}
             Estado={libro.Estado}
