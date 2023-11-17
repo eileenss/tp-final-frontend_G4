@@ -14,6 +14,9 @@ const Home = ({ usuarioLogueado }) => {
           <li>
             <Link to="/libros-alquilados" className="nav-link">Libros Alquilados</Link>
           </li>
+          <li>
+            <Link to="/login" className="nav-link">Cuenta</Link>
+          </li>
         </ul>
       </nav>
     </div>
