@@ -1,9 +1,13 @@
-import Libro from './Libro';
+import Libro from "./Libro";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ListadoLibros = (props) => {
   return (
     <ul>
       {props.Libros.map((libro) => {
+        const estadoClass = libro.Estado === 'Disponible' ? 'estado-disponible' : 'estado-alquilado';
+
         return (
           <Libro
             Id={libro._id}
@@ -16,6 +20,7 @@ const ListadoLibros = (props) => {
             Idioma={libro.Idioma}
             Estado={libro.Estado}
             Imagen={libro.Imagen}
+            Estado: {libro.Estado === 'Disponible' ? 'Disponible' : <span className={estadoClass}>Alquilado</span>}
             mostrarEstado={true}
           />
         );
