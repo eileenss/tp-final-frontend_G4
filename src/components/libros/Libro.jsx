@@ -18,8 +18,14 @@ const Libro = (props) => {
         <h3>Autor: {props.Autor}</h3>
         {mostrarEstado && <h3>Estado: {props.Estado}</h3>}
       </div>
+      <Link to={`/libros/updateLibro/${props.Id}`}>
+        <button>Modificar</button>
+      </Link>
+      <Link to={`/libros/deleteLibro/${props.Id}`}>
+        <button>Borrar</button>
+      </Link>
     </li>
-  ); 
+  );
 };
 
 export default Libro;

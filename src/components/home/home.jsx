@@ -9,13 +9,24 @@ const Home = ({ usuarioLogueado }) => {
       <nav>
         <ul className="nav-links">
           <li>
-            <Link to="/libros" className="nav-link">Libros</Link>
+            <Link to="/libros" className="nav-link">
+              Libros
+            </Link>
           </li>
           <li>
-            <Link to="/libros-alquilados" className="nav-link">Libros Alquilados</Link>
+            <Link to="/libros/addLibro" className="nav-link">
+              Crear Libro
+            </Link>
           </li>
           <li>
-            <Link to="/login" className="nav-link">Cuenta</Link>
+            <Link to="/libros-alquilados" className="nav-link">
+              Libros Alquilados
+            </Link>
+          </li>
+          <li>
+            <Link to="/login" className="nav-link">
+              Cuenta
+            </Link>
           </li>
         </ul>
       </nav>

@@ -5,6 +5,9 @@ import LibroDetails from './components/libros/LibroDetails';
 import LoginPage from './components/User/LoginPage';
 import Home from './components/home/home';
 import LoginDisconnect from './components/User/LoginDisconnect';
+import AddLibro from './components/libros/AddLibro';
+import UpdateLibro from './components/libros/UpdateLibro';
+import DeleteLibro from './components/libros/DeleteLibro';
 import UserDetails from './components/User/UserDetails';
 
 function App() {
@@ -12,10 +15,13 @@ function App() {
     <div className="aplicacion">
     <BrowserRouter>
       <Routes>
-        <Route path='/' element= {<Home/>} />
-        <Route path='/register' element= {<RegisterPage/>} />
+        <Route path="/" element= {<Home/>} />
+        <Route path="/register" element= {<RegisterPage/>} />
         <Route path="/libros" element={<Libros />} />
         <Route path="/libros/:id" element={<LibroDetails />} />
+        <Route path="/libros/addLibro" element={<AddLibro />} />
+        <Route path="/libros/updateLibro/:id" element={<UpdateLibro />} />
+        <Route path="/libros/deleteLibro/:id" element={<DeleteLibro />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/disconnect" element={<LoginDisconnect />} />
         <Route path="/user/:id" element={<UserDetails />} />
