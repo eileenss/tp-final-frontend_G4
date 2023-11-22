@@ -7,6 +7,7 @@ const UserDetails = () => {
     const { id } = useParams();
     const [user, setUser] = useState([]);
     const [librosDetails, setLibrosDetails] = useState([]);
+    const [libro, setLibro] = useState([]);
     
     useEffect(() => {
         fetch(`http://localhost:4000/users/user/${id}`)
@@ -29,9 +30,23 @@ const UserDetails = () => {
           }
       }, [user]);
 
-    const devolverLibro = (bookId) => {
+    const devolverLibro = async (id) => {
+      try {
+        const response = await fetch(`http://localhost:4000/libros/devolver/${id}`, {
+          method: 'POST',
+        });
+  
+        if (response.ok) {
+          setLibro((prevLibro) => ({ ...prevLibro, Estado: 'Disponible' }));
+          console.log('Libro devuelto con éxito.');
+        } else {
+          console.error('Error al devolver el libro.');
+        }
+      } catch (error) {
+        console.error('Error de red:', error);
+      }
         // Lógica para devolver el libro con el ID bookId
-        console.log(`Devolviendo libro con ID: ${bookId}`);
+        //console.log(`Devolviendo libro con ID: ${bookId}`);
         // Aquí puedes realizar una solicitud al servidor para devolver el libro, o realizar la lógica necesaria.
     };
 

@@ -20,7 +20,7 @@ const ListadoLibros = (props) => {
             Idioma={libro.Idioma}
             Estado={libro.Estado}
             Imagen={libro.Imagen}
-            Estado: {libro.Estado === 'Disponible' ? 'Disponible' : <span className={estadoClass}>Alquilado</span>}
+            //Estado: {libro.Estado === 'Disponible' ? 'Disponible' : <span className={estadoClass}>Alquilado</span>}
             mostrarEstado={true}
           />
         );
