@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 
 const Libro = (props) => {
+  const { mostrarEstado } = props;
   const estadoClass = props.Estado === 'Disponible' ? 'estado-disponible' : 'estado-alquilado';
 
   return (
@@ -15,7 +16,7 @@ const Libro = (props) => {
           <h1>Título: {props.Titulo}</h1>
         </Link>
         <h3>Autor: {props.Autor}</h3>
-        <h3>Estado: {props.Estado}</h3>
+        {mostrarEstado && <h3>Estado: {props.Estado}</h3>}
       </div>
     </li>
   ); 

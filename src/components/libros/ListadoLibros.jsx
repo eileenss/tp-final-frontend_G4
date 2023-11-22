@@ -16,6 +16,7 @@ const ListadoLibros = (props) => {
             Idioma={libro.Idioma}
             Estado={libro.Estado}
             Imagen={libro.Imagen}
+            mostrarEstado={true}
           />
         );
       })}

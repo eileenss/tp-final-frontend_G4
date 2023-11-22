@@ -1,5 +1,7 @@
+import { jwtDecode } from 'jwt-decode';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -11,10 +13,29 @@ const LoginForm = () => {
   
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
-      // Si hay un token almacenado, la proxima vez que el usuario entre a la pagina lo redirige a desconectar
-      navigate('/disconnect');
-    }
+    const obtenerIdDeToken = async () => {
+      if (token) {
+        try {
+          // Decodificar el token para obtener el ID
+          const decodedToken = jwtDecode(token);
+          const userId = decodedToken._id
+          
+          // Redirigir al usuario al obtener el ID del token
+          if (userId) {
+            navigate(`/user/${userId}`);
+          } else {
+            console.error('ID no válido en el token');
+            // Aquí podrías manejar el caso en el que el ID no sea válido
+            // Puedes redirigir a una página de error o a otro lugar
+          }
+        } catch (error) {
+          console.error('Error al decodificar el token:', error);
+          // Manejar errores de decodificación del token
+        }
+      }
+    };
+  
+    obtenerIdDeToken();
   }, [navigate]);
 
   const loginHandler = async () => {

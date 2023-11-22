@@ -5,6 +5,7 @@ import LibroDetails from './components/libros/LibroDetails';
 import LoginPage from './components/User/LoginPage';
 import Home from './components/home/home';
 import LoginDisconnect from './components/User/LoginDisconnect';
+import UserDetails from './components/User/UserDetails';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/libros/:id" element={<LibroDetails />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/disconnect" element={<LoginDisconnect />} />
+        <Route path="/user/:id" element={<UserDetails />} />
       </Routes>
     </BrowserRouter>
   </div>
