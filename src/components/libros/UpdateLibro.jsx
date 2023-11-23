@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 
 const UpdateLibro = (props) => {
   const { id } = useParams();
@@ -87,6 +88,9 @@ const UpdateLibro = (props) => {
         <input type="text" name="estado" placeholder="Estado" /> <br />
         <button type="submit">Actualizar Libro</button>
       </form>
+      <button>
+            <Link to="/libros" className="nav-link">Volver al listado</Link> 
+        </button>
     </div>
   );
 };

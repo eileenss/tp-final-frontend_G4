@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import { jwtDecode } from 'jwt-decode';
 
 const Libro = (props) => {
   const { mostrarEstado } = props;
   const estadoClass = props.Estado === 'Disponible' ? 'estado-disponible' : 'estado-alquilado';
+  const token = localStorage.getItem('token');
 
   return (
     <li className={`Libro ${estadoClass}`}>
@@ -18,12 +20,16 @@ const Libro = (props) => {
         <h3>Autor: {props.Autor}</h3>
         {mostrarEstado && <h3>Estado: {props.Estado}</h3>}
       </div>
-      <Link to={`/libros/updateLibro/${props.Id}`}>
+      {token != null && jwtDecode(token).rol === "admin" && 
+       <>
+       <Link to={`/libros/updateLibro/${props.Id}`}>
         <button>Modificar</button>
-      </Link>
-      <Link to={`/libros/deleteLibro/${props.Id}`}>
+       </Link>
+       <Link to={`/libros/deleteLibro/${props.Id}`}>
         <button>Borrar</button>
-      </Link>
+       </Link>
+       </>
+      }
     </li>
   );
 };

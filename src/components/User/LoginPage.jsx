@@ -1,9 +1,7 @@
 import { jwtDecode } from 'jwt-decode';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
-
+import {Link} from 'react-router-dom';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -70,6 +68,7 @@ const LoginForm = () => {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit}>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div>
@@ -78,8 +77,7 @@ const LoginForm = () => {
           type="email"
           id="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div>
         <label htmlFor="password">Contraseña:</label>
@@ -87,11 +85,14 @@ const LoginForm = () => {
           type="password"
           id="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          onChange={(e) => setPassword(e.target.value)} />
       </div>
       <button type="submit">Iniciar Sesión</button>
     </form>
+    <button>
+      <Link to="/" className="nav-link">Volver al inicio</Link>
+      </button>
+      </>
   );
 };
 

@@ -15,9 +15,14 @@ const Libros = (props) => {
   }, []);
 
   return (
-    <div>
-      <Link to="/" className="nav-link">Volver a inicio</Link>
+    <div> 
+      <button>
+            <Link to="/" className="nav-link">Volver al inicio</Link> 
+        </button>
       <ListadoLibros Libros={libros} />
+      <button>
+            <Link to="/" className="nav-link">Volver al inicio</Link> 
+        </button>
     </div>
   );
 };

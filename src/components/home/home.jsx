@@ -28,16 +28,16 @@ const Home = () => {
             <Link to="/libros/addLibro" className="nav-link">Agregar libro</Link>
           </li>
           }
-          {token == null &&
-          <li>
-            <Link to="/register" className="nav-link">Registrate</Link>
-          </li>
-          &&
-           <li>
-           <Link to="/login" className="nav-link">Iniciar sesión</Link>
-         </li>
-          }
-         
+          {token === null &&
+           <>
+            <li>
+              <Link to="/register" className="nav-link">Registrate</Link>
+              </li>
+              <li>
+                <Link to="/login" className="nav-link">Iniciar sesión</Link>
+                </li>
+                </>
+            }
           {/*separar login de libros alquilados*/ }
             <li>
             <Link to="/login" className="nav-link">Libros Alquilados</Link>

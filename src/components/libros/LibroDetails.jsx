@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './styles.css';
+import {Link} from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 const LibroDetails = (props) => {
   const { id } = useParams();
@@ -50,8 +52,10 @@ const devolverLibro = async () => {
   };
 
   const estadoClass = libro.Estado === 'Disponible' ? 'estado-disponible' : 'estado-alquilado';
+  const token = localStorage.getItem('token');
 
   return (
+    
     <div className="LibroDetails-container">
       <div>
         <img src={libro.Imagen} alt="Tapa de libro" />
@@ -64,8 +68,17 @@ const devolverLibro = async () => {
       <h3>Editorial: {libro.Editorial}</h3>
       <h3>Idioma: {libro.Idioma}</h3>
       <h3>Estado: <span className={estadoClass}>{libro.Estado}</span></h3>
-      {libro.Estado === 'Disponible' && <button onClick={alquilarLibro}>Alquilar</button>}
+      {token != null && jwtDecode(token).rol != "admin" 
+      &&
+      <>
+       {libro.Estado === 'Disponible' && <button onClick={alquilarLibro}>Alquilar</button>}
       {libro.Estado === 'Alquilado' && <button onClick={devolverLibro}>Devolver</button>}
+      </>
+     
+  } 
+      <button>
+        <Link to="/" className="nav-link">Volver al inicio</Link>
+        </button>  
     </div>
   );
 };

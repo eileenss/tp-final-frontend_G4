@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const DeleteLibro = () => {
   const { id } = useParams();
@@ -47,6 +48,9 @@ const DeleteLibro = () => {
       </div>
       <h2>¿Estás seguro de que deseas borrar este libro?</h2>
       <button onClick={deleteLibroHandler}>Borrar Libro</button>
+      <button>
+            <Link to="/libros" className="nav-link">Volver al listado</Link> 
+        </button>
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom';
+
 const RegisterPage = (props) => {
     const registerHandler = (event) =>{
         const registro ={
@@ -27,6 +29,7 @@ const RegisterPage = (props) => {
     }
 
     return(
+        <>
         <div>
             <form onSubmit={registerHandler}>
                 <input type="text" name="dni" placeholder="DNI" /> <br/>
@@ -37,6 +40,10 @@ const RegisterPage = (props) => {
                 <button type="submit">Registrarse</button>
             </form>
         </div>
+        <button>
+            <Link to="/" className="nav-link">Volver al inicio</Link> 
+        </button>
+        </>
     )
 }
 
