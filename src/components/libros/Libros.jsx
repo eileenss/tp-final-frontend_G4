@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import ListadoLibros from "./ListadoLibros";
+import { Link } from 'react-router-dom';
 
 const Libros = (props) => {
   const [libros, setLibros] = useState([]);
@@ -15,6 +16,7 @@ const Libros = (props) => {
 
   return (
     <div>
+      <Link to="/" className="nav-link">Volver a inicio</Link>
       <ListadoLibros Libros={libros} />
     </div>
   );

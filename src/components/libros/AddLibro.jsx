@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const AddLibro = () => {
   const addLibroHandler = (event) => {
     event.preventDefault();
@@ -50,6 +52,7 @@ const AddLibro = () => {
         <input type="text" name="idioma" placeholder="Idioma" /> <br />
         <button type="submit">Agregar Libro</button>
       </form>
+      <Link to="/" className="nav-link">Volver a inicio</Link>
     </div>
   );
 };

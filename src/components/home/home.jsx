@@ -5,46 +5,47 @@ import { jwtDecode } from 'jwt-decode';
 
 const Home = () => {
   const token = localStorage.getItem('token');
-  useEffect(() =>{
+  // useEffect(() =>{
     
-    const obetenerToken = async () =>{
-      if(token){
+  //   const obetenerToken = async () =>{
+  //     if(token){
         
-      }
-    }
-  },[])
+  //     }
+  //   }
+  // },[])
 
-  const mostrarRegister = true;
+  //const mostrarRegister = true;
   return (
     <div className="home-container">
       <h1 className="welcome-message">Bienvenido</h1>
       <nav>
         <ul className="nav-links">
-        
           <li>
-            <Link to="/libros" className="nav-link">
-              Libros
-            </Link>
+            <Link to="/libros" className="nav-link">Libros</Link>
           </li>
           {token != null && jwtDecode(token).rol === "admin" &&
           <li>
-            <Link to="/libros/addLibro" className="nav-link">
-              Crear Libro
-            </Link>
-          </li>}
+            <Link to="/libros/addLibro" className="nav-link">Agregar libro</Link>
+          </li>
+          }
           {token == null &&
           <li>
-            <Link to="/register" className="nav-link">
-              Register
-            </Link>
-          </li>}
+            <Link to="/register" className="nav-link">Registrate</Link>
+          </li>
+          &&
+           <li>
+           <Link to="/login" className="nav-link">Iniciar sesión</Link>
+         </li>
+          }
+         
           {/*separar login de libros alquilados*/ }
             <li>
-            <Link to="/login" className="nav-link">
-            Libros Alquilados
-            </Link>
+            <Link to="/login" className="nav-link">Libros Alquilados</Link>
           </li>
-            {token  &&  <button> <Link to="/disconnect" > Desconectar </Link></button>}
+            {token  &&  
+            <button>
+              <Link to="/disconnect">Cerrar sesión</Link>
+              </button>}
         </ul>
       </nav>
     </div>
