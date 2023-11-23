@@ -71,7 +71,6 @@ const UserDetails = () => {
                 ))}
               </ul>
             </div>
-            <button><Link to="/disconnect">Desconectar</Link></button>
         </div>
       );
     };

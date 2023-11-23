@@ -1,6 +1,5 @@
 const RegisterPage = (props) => {
     const registerHandler = (event) =>{
-        event.preventDefault();
         const registro ={
             dni: event.target.dni.value,
             fullName: event.target.fullName.value,
