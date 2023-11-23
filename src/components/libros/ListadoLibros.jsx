@@ -1,4 +1,4 @@
-import Libro from "./Libro";
+import Libro from './Libro';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,7 +6,10 @@ const ListadoLibros = (props) => {
   return (
     <ul>
       {props.Libros.map((libro) => {
-        const estadoClass = libro.Estado === 'Disponible' ? 'estado-disponible' : 'estado-alquilado';
+        const estadoClass =
+          libro.Estado === 'Disponible'
+            ? 'estado-disponible'
+            : 'estado-alquilado';
 
         return (
           <Libro
@@ -15,7 +18,7 @@ const ListadoLibros = (props) => {
             Autor={libro.Autor}
             Genero={libro.Genero}
             Sinopsis={libro.Sinopsis}
-            FechaPublicacion={libro["Fecha-publicacion"]}
+            FechaPublicacion={libro['Fecha-publicacion']}
             Editorial={libro.Editorial}
             Idioma={libro.Idioma}
             Estado={libro.Estado}
