@@ -38,10 +38,9 @@ const Home = () => {
                 </li>
                 </>
             }
-          {/*separar login de libros alquilados*/ }
-            <li>
+            {token && jwtDecode(token).rol !== "admin" &&<li>
             <Link to="/login" className="nav-link">Libros Alquilados</Link>
-          </li>
+          </li>}
             {token  &&  
             <button>
               <Link to="/disconnect">Cerrar sesión</Link>
