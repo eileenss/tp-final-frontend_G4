@@ -7,6 +7,7 @@ const LibroDetails = (props) => {
   const token = localStorage.getItem('token');
   const { id } = useParams();
   const [libro, setLibro] = useState({});
+  
 
   useEffect(() => {
     fetch(`http://localhost:4000/libros/${id}`)
@@ -66,7 +67,7 @@ const LibroDetails = (props) => {
       <h3>
         Estado: <span className={estadoClass}>{libro.Estado}</span>
       </h3>
-      {libro.Estado === 'Disponible' && (
+      {libro.Estado === 'Disponible' && token && (
         <button onClick={alquilarLibro}>Alquilar</button>
       )}
     </div>

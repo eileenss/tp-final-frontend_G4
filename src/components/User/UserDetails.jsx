@@ -57,6 +57,7 @@ const UserDetails = () => {
       if (responseLibro.ok) {
         setLibro((prevLibro) => ({ ...prevLibro, Estado: 'Disponible' }));
         console.log('Libro devuelto con éxito.');
+        window.location.reload();
       } else {
         console.error('Error al devolver el libro.');
       }
