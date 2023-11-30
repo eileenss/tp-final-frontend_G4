@@ -5,16 +5,7 @@ import { jwtDecode } from 'jwt-decode';
 
 const Home = () => {
   const token = localStorage.getItem('token');
-  // useEffect(() =>{
-    
-  //   const obetenerToken = async () =>{
-  //     if(token){
-        
-  //     }
-  //   }
-  // },[])
 
-  //const mostrarRegister = true;
   return (
     <div className="home-container">
       <h1 className="welcome-message">Bienvenido</h1>

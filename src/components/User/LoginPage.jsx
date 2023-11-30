@@ -14,21 +14,16 @@ const LoginForm = () => {
     const obtenerIdDeToken = async () => {
       if (token) {
         try {
-          // Decodificar el token para obtener el ID
           const decodedToken = jwtDecode(token);
           const userId = decodedToken._id
           
-          // Redirigir al usuario al obtener el ID del token
           if (userId) {
             navigate(`/user/${userId}`);
           } else {
             console.error('ID no válido en el token');
-            // Aquí podrías manejar el caso en el que el ID no sea válido
-            // Puedes redirigir a una página de error o a otro lugar
           }
         } catch (error) {
           console.error('Error al decodificar el token:', error);
-          // Manejar errores de decodificación del token
         }
       }
     };
@@ -48,17 +43,13 @@ const LoginForm = () => {
 
       if (response.ok) {
         const data = await response.json();
-        // Si la respuesta es exitosa, data debería contiene un token
         localStorage.setItem('token', data.token);
-        // Redirige a la página '/' después de un inicio de sesión exitoso
         navigate('/');
       } else {
         setError('Error al iniciar sesión')
-        // Seteamos el error a enviar
       }
     } catch (error) {
       setError('Error en la solicitud:', error)
-      // Seteamos el error a enviar
     }
   };
 

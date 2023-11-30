@@ -5,9 +5,7 @@ const LoginDisconnect = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Borra el token del localStorage al hacer clic en el botón de desconexión
     localStorage.removeItem('token');
-    // Redirige al usuario de vuelta a la página de inicio de sesión
     navigate('/');
   };
 
